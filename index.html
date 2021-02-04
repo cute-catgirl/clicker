@@ -6,7 +6,8 @@
   <body>
     <script src="script.js"></script>
     <p id="scoretext">You have 0 points.</p>
-    <button type="button" onclick="clickButton()">Click</button>
-    <button type="button" onclick="buyPoints()">Upgrade Click - 100 Points</button>
+    <button type="button" onclick="incrPoints()" id="clickButton" style="display: inline">incrPoints(1);</button>
+    <button type="button" onclick="upClick()" id="upgradeButton" style="display: none">upClick(100);</button>
+    <button type="button" onclick="upClick()" id="cpsButton" style="display: none">upCPS(250);</button>
   </body>
 </html>
