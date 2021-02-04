@@ -1,7 +1,9 @@
 var score = 0;
 var totalclicks = 0;
 var upgradeCost = 100;
+var upgradeCPSCost = 300;
 var clickAmount = 1;
+var cpsAmount = 0;
 function incrPoints() {
   score += clickAmount;
   totalclicks += clickAmount;
@@ -16,10 +18,24 @@ function incrPoints() {
 function upClick() {
   if (score >= upgradeCost) {
     score -= upgradeCost;
-    upgradeCost = upgradeCost * 2.5;
+    upgradeCost = Math.round(upgradeCost * 2.5);
     clickAmount = clickAmount * 2;
     document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
     document.getElementById("upgradeButton").innerHTML = "upClick(" + upgradeCost + ");";
-    document.getElementById("clickButton").innerHTML = "incrPoints(" + clickAmount + ");";
+    document.getElementById("clickButton").innerHTML = "score += " + clickAmount + ";";
+  }
+}
+function upCPS() {
+  if (score >= upgradeCPSCost) {
+    score -= upgradeCPSCost;
+    upgradeCPSCost = Math.round(upgradeCPSCost * 1.1);
+    if (cpsAmount == 0) {
+      cpsAmount++;
+    }
+    else {
+      cpsAmount = Math.round(cpsAmount * 1.2);
+    }
+    document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
+    document.getElementById("cpsButton").innerHTML = "upCPS(" + upgradeCPSCost + ");";
   }
 }
