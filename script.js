@@ -33,7 +33,7 @@ function upCPS() {
       cpsAmount++;
     }
     else {
-      cpsAmount = Math.round(cpsAmount * 1.2);
+      cpsAmount++;
     }
     document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
     document.getElementById("cpsButton").innerHTML = "upCPS(" + upgradeCPSCost + ");";
