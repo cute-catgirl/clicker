@@ -11,13 +11,7 @@ if (localStorage.score) {
   upgradeCPSCost = Number(localStorage.upgradeCPSCost);
   clickAmount = Number(localStorage.clickAmount);
   cpsAmount = Number(localStorage.cpsAmount);
-}
-document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
-if (score >= 50) {
-  document.getElementById("upgradeButton").style.display = "block";
-}
-if (score >= 200) {
-  document.getElementById("cpsButton").style.display = "block";
+  incrPoints();
 }
 function saveGame() {
   localStorage.score = score;
