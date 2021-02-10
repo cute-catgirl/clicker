@@ -6,7 +6,7 @@ var clickAmount = 1;
 var cpsAmount = 0;
 if (localStorage.score) {
   score = Number(localStorage.score);
-  totalclicks = Number(localstorage.totalclicks);
+  totalclicks = Number(localStorage.totalclicks);
   upgradeCost = Number(localStorage.upgradeCost);
   upgradeCPSCost = Number(localStorage.upgradeCPSCost);
   clickAmount = Number(localStorage.clickAmount);
