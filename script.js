@@ -4,6 +4,22 @@ var upgradeCost = 100;
 var upgradeCPSCost = 300;
 var clickAmount = 1;
 var cpsAmount = 0;
+if (localStorage.score) {
+  score = Number(localStorage.score);
+  totalclicks = Number(localstorage.totalclicks);
+  upgradeCost = Number(localStorage.upgradeCost);
+  upgradeCPSCost = Number(localStorage.upgradeCPSCost);
+  clickAmount = Number(localStorage.clickAmount);
+  cpsAmount = Number(localStorage.cpsAmount);
+}
+function saveGame() {
+  localStorage.score = score;
+  localStorage.totalclicks = totalclicks;
+  localStorage.upgradeCost = upgradeCost;
+  localStorage.upgradeCPSCost = upgradeCPSCost;
+  localStorage.clickAmount = clickAmount;
+  localStorage.cpsAmount = cpsAmount;
+}
 function incrPoints() {
   score += clickAmount;
   totalclicks += clickAmount;
@@ -14,6 +30,7 @@ function incrPoints() {
   if (score >= 200) {
     document.getElementById("cpsButton").style.display = "block";
   }
+  saveGame();
 }
 function upClick() {
   if (score >= upgradeCost) {
@@ -24,6 +41,7 @@ function upClick() {
     document.getElementById("upgradeButton").innerHTML = "upClick(" + upgradeCost + ");";
     document.getElementById("clickButton").innerHTML = "score += " + clickAmount + ";";
   }
+  saveGame();
 }
 function upCPS() {
   if (score >= upgradeCPSCost) {
@@ -38,4 +56,5 @@ function upCPS() {
     document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
     document.getElementById("cpsButton").innerHTML = "upCPS(" + upgradeCPSCost + ");";
   }
+  saveGame();
 }
