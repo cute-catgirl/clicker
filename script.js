@@ -11,7 +11,7 @@ if (localStorage.score) {
   upgradeCPSCost = Number(localStorage.upgradeCPSCost);
   clickAmount = Number(localStorage.clickAmount);
   cpsAmount = Number(localStorage.cpsAmount);
-  incrPoints();
+	updateInfo();
 }
 function saveGame() {
   localStorage.score = score;
