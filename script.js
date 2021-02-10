@@ -26,7 +26,7 @@ function updateInfo() {
   document.getElementById("upgradeButton").innerHTML = "upClick(" + upgradeCost + ");";
   document.getElementById("clickButton").innerHTML = "score += " + clickAmount + ";";
   document.getElementById("cpsButton").innerHTML = "upCPS(" + upgradeCPSCost + ");";
-  if (score >= 50 || clickAmount >= 1) {
+  if (score >= 50 || clickAmount > 1) {
     document.getElementById("upgradeButton").style.display = "block";
   }
   if (score >= 200 || cpsAmount > 0) {
