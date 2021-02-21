@@ -5,7 +5,8 @@ var upgradeCPSCost = 300;
 var clickAmount = 1;
 var cpsAmount = 0;*/
 
-let game = {
+if (!localStorage.getItem("gameSave")) {
+  let game = {
 	score: 0,
   totalClicks: 0,
   upgradeCost: 100,
@@ -13,24 +14,10 @@ let game = {
   CPClick: 1,
   CPSecond: 0
 }
-
-/*if (localStorage.score) {
-  score = Number(localStorage.score);
-  totalclicks = Number(localStorage.totalclicks);
-  upgradeCost = Number(localStorage.upgradeCost);
-  upgradeCPSCost = Number(localStorage.upgradeCPSCost);
-  clickAmount = Number(localStorage.clickAmount);
-  cpsAmount = Number(localStorage.cpsAmount);
-	updateInfo();
 }*/
 
-
-function defaultSave() {
-	return game;
-}
-
 function loadGame() {
-	game = localStorage ?? defaultSave()
+	game = JSON.parse(localStorage.getItem("gameSave"));
 }
 
 /*function saveGame() {
