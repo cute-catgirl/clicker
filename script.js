@@ -24,13 +24,14 @@ let game = {
 	updateInfo();
 }*/
 
-function loadGame() {
-	game = JSON.parse(localStorage.getItem("gameSave")); // This will retrieve the entire game object literal from one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
-	game = localStorage... ?? defaultSave()
-}
 
 function defaultSave() {
 	return game;
+}
+
+function loadGame() {
+	game = JSON.parse(localStorage.getItem("gameSave")); // This will retrieve the entire game object literal from one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
+	game = localStorage... ?? defaultSave();
 }
 
 /*function saveGame() {
