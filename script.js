@@ -1,3 +1,10 @@
+/*var score = 0;
+var totalclicks = 0;
+var upgradeCost = 100;
+var upgradeCPSCost = 300;
+var clickAmount = 1;
+var cpsAmount = 0;*/
+
 let game = {
 	score: 0,
   totalClicks: 0,
@@ -7,10 +14,28 @@ let game = {
   CPSecond: 0
 }
 
+/*if (localStorage.score) {
+  score = Number(localStorage.score);
+  totalclicks = Number(localStorage.totalclicks);
+  upgradeCost = Number(localStorage.upgradeCost);
+  upgradeCPSCost = Number(localStorage.upgradeCPSCost);
+  clickAmount = Number(localStorage.clickAmount);
+  cpsAmount = Number(localStorage.cpsAmount);
+	updateInfo();
+}*/
+
 function loadGame() {
 	game = JSON.parse(localStorage.getItem("gameSave")); // This will retrieve the entire game object literal from one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
 }
 
+/*function saveGame() {
+  localStorage.score = score;
+  localStorage.totalclicks = totalclicks;
+  localStorage.upgradeCost = upgradeCost;
+  localStorage.upgradeCPSCost = upgradeCPSCost;
+  localStorage.clickAmount = clickAmount;
+  localStorage.cpsAmount = cpsAmount;
+}*/
 function saveGame() {
 	localStorage.setItem("gameSave", game); // This will save the entire game object literal in one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
  }
@@ -78,3 +103,57 @@ function upCPS() {
     }
   }
 }
+
+/*function updateInfo() {
+  document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
+  document.getElementById("upgradeButton").innerHTML = "upClick(" + upgradeCost + ");";
+  document.getElementById("clickButton").innerHTML = "score += " + clickAmount + ";";
+  document.getElementById("cpsButton").innerHTML = "upCPS(" + upgradeCPSCost + ");";
+  if (score >= 50 || clickAmount > 1) {
+    document.getElementById("upgradeButton").style.display = "block";
+  }
+  if (score >= 200 || cpsAmount > 0) {
+    document.getElementById("cpsButton").style.display = "block";
+  }
+}
+function incrPoints() {
+  score += clickAmount;
+  totalclicks += clickAmount;
+  document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
+  updateInfo();
+  saveGame();
+}
+function upClick() {
+  if (score >= upgradeCost) {
+    score -= upgradeCost;
+    upgradeCost = Math.round(upgradeCost * 2.5);
+    clickAmount = clickAmount * 2;
+    document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
+    document.getElementById("upgradeButton").innerHTML = "upClick(" + upgradeCost + ");";
+    document.getElementById("clickButton").innerHTML = "score += " + clickAmount + ";";
+  }
+  updateInfo();
+  saveGame();
+}
+function upCPS() {
+  if (score >= upgradeCPSCost) {
+    score -= upgradeCPSCost;
+    upgradeCPSCost = Math.round(upgradeCPSCost * 1.1);
+    if (cpsAmount == 0) {
+      cpsAmount++;
+    }
+    else {
+      cpsAmount++;
+    }
+    updateInfo();
+  }
+  saveGame();
+}
+
+setInterval(cpsIncr, 1000);
+
+function cpsIncr() {
+  score += cpsAmount;
+  document.getElementById("scoretext").innerHTML = "You have " + score + " points.";
+  saveGame();
+}*/
