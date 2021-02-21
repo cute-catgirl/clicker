@@ -4,7 +4,7 @@ var upgradeCost = 100;
 var upgradeCPSCost = 300;
 var clickAmount = 1;
 var cpsAmount = 0;*/
-saveGame();
+
 let game = {
 	score: 0,
   totalClicks: 0,
@@ -31,6 +31,7 @@ function defaultSave() {
 
 function loadGame() {
 	game = JSON.parse(localStorage.getItem("gameSave")); // This will retrieve the entire game object literal from one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
+	game = localStorage ?? defaultSave()
 }
 
 /*function saveGame() {
