@@ -30,7 +30,7 @@ function loadGame() { game = JSON.parse(localStorage.getItem("gameSave")) ?? def
   localStorage.cpsAmount = cpsAmount;
 }*/
 function saveGame() {
-	localStorage.setItem("gameSave", game); // This will save the entire game object literal in one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
+	localStorage.setItem("gameSave", JSON.stringify(game)); // This will save the entire game object literal in one single localStorage key. If you would like an extension of this using a defaultSave file etc, I would be happ to do so.
  }
 
 const onLoad = window.onload = function() { init(); } // window.onload will be run when the page first loads/mounts.
