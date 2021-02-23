@@ -45,13 +45,13 @@ function init/*Stands for initiate*/() {
 
 function tick() {
 	updateState();
-  updateUI();
-  // buy separating UI and state logic, you will not have as many UI updates, which is always good.
+	updateUI();
+  // by separating UI and state logic, you will not have as many UI updates, which is always good.
 }
 
 // I set a variable to the interval so that you can run them once in the console if needed for future testing, as well as you can cancel the interval at any time using clearInterval(variable).
 const updateInterval = setInterval(tick, 100); // I am running this function every 100ms now.
-const saveInterval = setInterval(saveGame, 10000); // I am auto-saving the game every 10 seconds, or 10000 ms.
+const saveInterval = setInterval(saveGame, 100); // I am auto-saving the game every 10 seconds, or 10000 ms.
 
 function updateUI() {
 	document.getElementById("scoretext").innerHTML = "You have " + game.score + " points.";
