@@ -37,7 +37,7 @@ function updateUI() {
 
 function updateState() {
 	game.score += game.CPSecond / 10;
-	game.score = game.score.toFixed(1);
+	game.score = Number(game.score).toFixed(1);
 }
 
 function incrPoints() {
