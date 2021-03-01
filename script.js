@@ -27,10 +27,10 @@ function updateUI() {
   document.getElementById("upgradeButton").innerHTML = "upClick(" + game.upgradeCost + ");";
   document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
   document.getElementById("cpsButton").innerHTML = "upCPS(" + game.upgradeCPSCost + ");";
-  if (game.score >= 50 || game.CPClick > 1) {
+  if (game.score >= 15 || game.CPClick > 1) {
     document.getElementById("upgradeButton").style.display = "block";
   }
-  if (game.score >= 200 || game.CPSecond > 0) {
+  if (game.score >= 50 || game.CPSecond > 0) {
     document.getElementById("cpsButton").style.display = "block";
   }
 }
