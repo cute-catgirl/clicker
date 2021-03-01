@@ -1,4 +1,4 @@
-let defaultSave = () => { return { score: 0, totalClicks: 0, upgradeCost: 100, upgradeCPSCost: 300, CPClick: 1, CPSecond: 0 } }
+let defaultSave = () => { return { score: 0, totalClicks: 0, upgradeCost: 30, upgradeCPSCost: 100, CPClick: 1, CPSecond: 0 } }
 
 let game;
 
@@ -48,15 +48,15 @@ function incrPoints() {
 function upClick() {
   if (game.score >= game.upgradeCost) {
     game.score -= game.upgradeCost;
-    game.upgradeCost = Math.round(game.upgradeCost * 2.5);
-    game.CPClick *= 2;
+    game.upgradeCost = Math.round(game.upgradeCost * 1.1);
+    game.CPClick += 1;
   }
 }
 
 function upCPS() {
   if (game.score >= game.upgradeCPSCost) {
     game.score -= game.upgradeCPSCost;
-    game.upgradeCPSCost = Math.round(game.upgradeCPSCost * 1.1);
+    game.upgradeCPSCost = Math.round(game.upgradeCPSCost * 1.2);
     if (game.CPSecond == 0) {
       game.CPSecond++;
     }
