@@ -8,9 +8,11 @@
   <body>
     <script src="script.js"></script>
     <p id="scoretext">You have 0 points.</p>
-    <button type="button" onclick="incrPoints()" id="clickButton" style="display: inline">score += 1;</button>
-    <button type="button" onclick="saveGame()" id="clickButton" style="display: inline">saveGame();</button>
-    <button type="button" onclick="upClick()" id="upgradeButton" style="display: none">clickAmount += 1; score -= 30;</button>
-    <button type="button" onclick="upCPS()" id="cpsButton" style="display: none">CPSAmount += 1;</button>
+    <div class="gamecontainer">
+      <button type="button" onclick="incrPoints()" id="clickButton" style="display: grid">score += 1;</button>
+      <button type="button" onclick="saveGame()" id="saveButton" style="display: grid">saveGame();</button>
+      <button type="button" onclick="upClick()" id="upgradeButton" style="display: none">clickAmount += 1; score -= 30;</button>
+      <button type="button" onclick="upCPS()" id="cpsButton" style="display: none">CPSAmount += 1;</button>
+    </div>
   </body>
 </html>
