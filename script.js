@@ -24,10 +24,10 @@ const saveInterval = setInterval(saveGame, 10000);
 
 function updateUI() {
   document.getElementById("scoretext").innerHTML = "You have " + game.score + " points.";
-  document.getElementById("upgradeButton").innerHTML = "upClick(" + game.upgradeCost + ");";
+  document.getElementById("upgradeButton").innerHTML = "clickAmount += 1; score -= " + game.upgradeCost + ";";
   document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
-  document.getElementById("cpsButton").innerHTML = "upCPS(" + game.upgradeCPSCost + ");";
-  if (game.score >= 50 || game.CPClick > 1) {
+  document.getElementById("cpsButton").innerHTML = "CPSAmount += 1; score -= " + game.upgradeCPSCost + ";";
+  if (game.score >= 15 || game.CPClick > 1) {
     document.getElementById("upgradeButton").style.display = "block";
   }
   if (game.score >= 100 || game.CPSecond > 0) {
@@ -56,7 +56,7 @@ function upClick() {
 function upCPS() {
   if (game.score >= game.upgradeCPSCost) {
     game.score -= game.upgradeCPSCost;
-    game.upgradeCPSCost = Math.round(game.upgradeCPSCost * 1.2);
+    game.upgradeCPSCost = Math.round(game.upgradeCPSCost * 1.3);
     if (game.CPSecond == 0) {
       game.CPSecond++;
     }

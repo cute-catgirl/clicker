@@ -1,0 +1,22 @@
+* {
+  font-family: "Open Sans";
+}
+
+body {
+  background-color: #fffdd0;
+}
+
+button {
+  background-color: lightgray;
+  border: none;
+  padding: 5px;
+  transition-duration: 0.2s;
+  box-shadow: 1px 1px 1px;
+  margin: 3px;
+}
+
+button:hover {
+  background-color: darkgray;
+  color: white;
+  box-shadow: 0px 0px;
+}
