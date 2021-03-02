@@ -1,4 +1,4 @@
-let defaultSave = () => { return { score: 0, totalClicks: 0, upgradeCost: 30, upgradeCPSCost: 100, CPClick: 1, CPSecond: 0 } }
+let defaultSave = () => { return { score: 0, totalClicks: 0, upgradeCost: 100, upgradeCPSCost: 200, CPClick: 1, CPSecond: 0 } }
 
 let game;
 
@@ -27,10 +27,10 @@ function updateUI() {
   document.getElementById("upgradeButton").innerHTML = "upClick(" + game.upgradeCost + ");";
   document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
   document.getElementById("cpsButton").innerHTML = "upCPS(" + game.upgradeCPSCost + ");";
-  if (game.score >= 15 || game.CPClick > 1) {
+  if (game.score >= 50 || game.CPClick > 1) {
     document.getElementById("upgradeButton").style.display = "block";
   }
-  if (game.score >= 50 || game.CPSecond > 0) {
+  if (game.score >= 100 || game.CPSecond > 0) {
     document.getElementById("cpsButton").style.display = "block";
   }
 }
@@ -48,7 +48,7 @@ function incrPoints() {
 function upClick() {
   if (game.score >= game.upgradeCost) {
     game.score -= game.upgradeCost;
-    game.upgradeCost = Math.round(game.upgradeCost * 1.1);
+    game.upgradeCost = Math.round(game.upgradeCost * 1.5);
     game.CPClick += 1;
   }
 }
