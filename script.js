@@ -30,7 +30,7 @@ function updateUI() {
   if (game.score >= 15 || game.CPClick > 1) {
     document.getElementById("upgradeButton").style.display = "block";
   }
-  if (game.score >= 50 || game.CPSecond > 0) {
+  if (game.score >= 100 || game.CPSecond > 0) {
     document.getElementById("cpsButton").style.display = "block";
   }
 }
