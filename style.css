@@ -23,7 +23,7 @@ button:hover {
 
 .gamecontainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto 50%;
   grid-template-rows: auto auto auto auto;
 }
 
@@ -44,5 +44,5 @@ button:hover {
 
 #cpsButton {
   grid-column: 1 / 2;
-  grid-row: 2;
+  grid-row: 3;
 }
