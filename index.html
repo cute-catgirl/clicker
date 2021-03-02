@@ -2,13 +2,15 @@
 <html>
   <head>
     <title>Clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
     <script src="script.js"></script>
     <p id="scoretext">You have 0 points.</p>
     <button type="button" onclick="incrPoints()" id="clickButton" style="display: inline">score += 1;</button>
     <button type="button" onclick="saveGame()" id="clickButton" style="display: inline">saveGame();</button>
-    <button type="button" onclick="upClick()" id="upgradeButton" style="display: none">upClick(30);</button>
-    <button type="button" onclick="upCPS()" id="cpsButton" style="display: none">upCPS(100);</button>
+    <button type="button" onclick="upClick()" id="upgradeButton" style="display: none">clickAmount += 1; score -= 30;</button>
+    <button type="button" onclick="upCPS()" id="cpsButton" style="display: none">CPSAmount += 1;</button>
   </body>
 </html>
