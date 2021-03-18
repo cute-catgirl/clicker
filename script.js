@@ -27,8 +27,7 @@ function updateUI() {
   document.getElementById("upgradeButton").innerHTML = "clickAmount += " + game.buttonLevel + "; score -= " + game.upgradeCost + ";";
   document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
   document.getElementById("cpsButton").innerHTML = "CPSAmount += 1; score -= " + game.upgradeCPSCost + ";";
-	document.getElementById("levelButton").innerHTML = "buttonLevel += 1; score -= "; + game.upgradeLevelCost + ";";
-	console.log("cost:" + game.upgradeLevelCost + "level:" + game.buttonLevel);
+	document.getElementById("levelButton").innerHTML = "buttonLevel += 1; score -= " + game.upgradeLevelCost + ";";
   if (game.score >= 15 || game.CPClick > 1) {
     document.getElementById("upgradeButton").style.display = "grid";
   }
