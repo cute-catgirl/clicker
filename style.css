@@ -44,5 +44,10 @@ button:hover {
 
 #cpsButton {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
+}
+
+#levelButton {
+  grid-column: 1;
+  grid-row: 4;
 }
