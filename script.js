@@ -68,7 +68,7 @@ function upCPS() {
 function upButtons() {
 	if (game.score >= game.upgradeLevelCost) {
 		game.score -= game.upgradeLevelCost;
-		game.upgradeLevelCost = Math.round(game.upgradeLevelCost * 2);
+		game.upgradeLevelCost = Math.round(game.upgradeLevelCost * 10);
 		game.buttonLevel += 1;
 	}
 }
