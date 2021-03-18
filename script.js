@@ -23,7 +23,7 @@ const updateInterval = setInterval(tick, 100);
 const saveInterval = setInterval(saveGame, 10000);
 
 function updateUI() {
-  document.getElementById("scoretext").innerHTML = "You have " + game.score + " points.";
+  document.getElementById("scoretext").innerHTML = "score = " + game.score.toFixed(1) + ";";
   document.getElementById("upgradeButton").innerHTML = "clickAmount += " + game.buttonLevel + "; score -= " + game.upgradeCost + ";";
   document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
   document.getElementById("cpsButton").innerHTML = "CPSAmount += 1; score -= " + game.upgradeCPSCost + ";";
