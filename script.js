@@ -24,7 +24,7 @@ const saveInterval = setInterval(saveGame, 10000);
 
 function updateUI() {
 	if (game.critChance > 0) {
-		document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + "; if (randomInt(1, " + game.critChance + ") == 100) {score += " + game.CPClick * 10 + "};" ;
+		document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + "; if (randomInt(1, " + game.critChance + ") == 1) {score += " + game.CPClick * 10 + "};" ;
 	}
 	else {
 		document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
@@ -33,6 +33,9 @@ function updateUI() {
   document.getElementById("upgradeButton").innerHTML = "clickAmount += " + game.buttonLevel + "; score -= " + game.upgradeCost + ";";
   document.getElementById("cpsButton").innerHTML = "CPSAmount += 1; score -= " + game.upgradeCPSCost + ";";
 	document.getElementById("levelButton").innerHTML = "buttonLevel += 1; score -= " + game.upgradeLevelCost + ";";
+	if (game.critChance == null) {
+		game.critChance = 0;
+	}
   if (game.score >= 15 || game.CPClick > 1) {
     document.getElementById("upgradeButton").style.display = "grid";
   }
@@ -60,7 +63,7 @@ function incrPoints() {
   game.score += game.CPClick;
   game.totalClicks += game.CPClick;
 	var randint = randomInt(1, game.critChance);
-	if (randint == 100) {
+	if (randint == 1) {
 		game.score += game.CPClick * 10;
 	}
 }
