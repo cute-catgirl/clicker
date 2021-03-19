@@ -1,4 +1,4 @@
-let defaultSave = () => { return { score: 0, totalClicks: 0, upgradeCost: 100, upgradeCPSCost: 200, upgradeLevelCost: 1000, buttonLevel: 1, CPClick: 1, CPSecond: 0 } }
+let defaultSave = () => { return { score: 0, totalClicks: 0, critChance: 0, upgradeCost: 100, upgradeCPSCost: 200, upgradeLevelCost: 1000, buttonLevel: 1, CPClick: 1, CPSecond: 0 } }
 
 let game;
 
@@ -23,9 +23,14 @@ const updateInterval = setInterval(tick, 100);
 const saveInterval = setInterval(saveGame, 10000);
 
 function updateUI() {
-  document.getElementById("scoretext").innerHTML = "score = " + game.score.toFixed(1) + ";";
+	if (game.critChance > 0) {
+		document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + "; if (randomInt(1, " + game.critChance + ") == 100) {score += " + game.CPClick * 10 + "};" ;
+	}
+	else {
+		document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
+	}
+	document.getElementById("scoretext").innerHTML = "score = " + game.score.toFixed(1) + ";";
   document.getElementById("upgradeButton").innerHTML = "clickAmount += " + game.buttonLevel + "; score -= " + game.upgradeCost + ";";
-  document.getElementById("clickButton").innerHTML = "score += " + game.CPClick + ";";
   document.getElementById("cpsButton").innerHTML = "CPSAmount += 1; score -= " + game.upgradeCPSCost + ";";
 	document.getElementById("levelButton").innerHTML = "buttonLevel += 1; score -= " + game.upgradeLevelCost + ";";
   if (game.score >= 15 || game.CPClick > 1) {
@@ -37,6 +42,13 @@ function updateUI() {
 	if (game.score >= 500 || game.buttonLevel > 1) {
 		document.getElementById("levelButton").style.display = "grid";
 	}
+	if (game.score >= 2000 && game.critChance == 0) {
+		document.getElementById("critButton").style.display = "grid";
+	}
+}
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function updateState() {
@@ -47,6 +59,10 @@ function updateState() {
 function incrPoints() {
   game.score += game.CPClick;
   game.totalClicks += game.CPClick;
+	var randint = randomInt(1, game.critChance);
+	if (randint == 100) {
+		game.score += game.CPClick * 10;
+	}
 }
 
 function upClick() {
@@ -70,5 +86,13 @@ function upButtons() {
 		game.score -= game.upgradeLevelCost;
 		game.upgradeLevelCost = Math.round(game.upgradeLevelCost * 10);
 		game.buttonLevel += 1;
+	}
+}
+
+function critChance() {
+	if (game.score >= 2500) {
+		game.score -= 2500;
+		game.critChance = 100;
+		document.getElementById("critButton").style.display = "none";
 	}
 }
