@@ -63,7 +63,7 @@ function incrPoints() {
   game.score += game.CPClick;
   game.totalClicks += game.CPClick;
 	var randint = randomInt(1, game.critChance);
-	if (randint == 1) {
+	if (randint == 100) {
 		game.score += game.CPClick * 10;
 	}
 }
